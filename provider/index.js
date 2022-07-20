@@ -4,15 +4,16 @@ const Joi = require("joi");
 const list = require("./courses");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+const databaseUrl = dotenv.config().parsed.API_KEY;
 
 // mongoose
 //   .connect("mongodb://localhost/api")
 //   .then(() => console.log("success mongo connection"))
 //   .catch((err) => console.log(err));
-const dbUrl =
-  "mongodb+srv://harzhpatel:harsh!4945@cluster0.lug6i.mongodb.net/?retryWrites=true&w=majority";
+
 mongoose
-  .connect(dbUrl)
+  .connect(databaseUrl)
   .then(() => console.log("success mongo connection"))
   .catch((err) => console.log(err));
 
